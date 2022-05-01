@@ -1,0 +1,34 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 #lang racket\
+\
+;assignment 3 pt 2b\
+;Connor McGarvey\
+\
+(define (replace find replacement list) ; function definition called replace, has 3 parameters find replacement and the list\
+(cond ((null? list) '()) ;if the list is null returns empty list\
+((list? (car list)) (cons (replace find replacement (car list)) (replace find replacement (cdr list)))) ; second condition check, if a elemet is a list itsself, cons recusively call the function on THAT element and recursive call with replace and find and replacement and list containing the remaining elements.\
+((eq? (car list) find) (cons replacement (replace find replacement (cdr list)))) ;if the atom is equal to replacement atom cons the replacement and recursively call replace on the remainder of the list\
+(else\
+(cons (car list) (replace find replacement (cdr list)))))) ; else cons the first element of the list and the recursive call of replace being passed find and replace and the remainder of the list\
+\
+; drive calls replace with the locate elment, the replacement element and the list being operated on\
+(replace 'a 'b '(a b c))\
+(replace 'a 'b '(a b c d e a b a d e))\
+(replace 'b 'a '(a b c d e a b a d e))\
+(replace 'a 'z '(a b c d e a b a d e))\
+\
+(replace 'c 'a '((a b c) () () (c) (c(c))))\
+\
+(replace 'a 'b '((a b c) () () (c) (c(c))))\
+\
+(replace 'y 'a '(a a (b) c y y y y a))\
+(replace 'y 'a '(a a b c y y (y) y a))\
+(replace 'y 'a '(a a b c y y ((y)) y a))\
+(replace 'y 'a '(a a b c y (y (y)) y a))\
+}

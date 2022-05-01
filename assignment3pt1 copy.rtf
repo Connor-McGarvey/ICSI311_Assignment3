@@ -1,0 +1,74 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ;Assignment 3 part 1\
+;Connor McGarvey\
+\
+\
+(define (absValue lis); opening statement for my absValue function that gets passed a list as a parameter\
+    (cond ((null? lis)'()); first condition check, checks if list is empty if it is return empty list \
+    (else (cons (abs (car lis));  else to previous condition check, uses built in abs function with the car (first element) of the list\
+                (absValue (cdr lis)))))) ; recursivly calls the absValue function by passing the cdr (remaining elements) of the list\
+            \
+(define aq (list '1.5 '-2.943 '-55.0 '-9321.342 '2384.5832 '-932.8953 '21 '-93765)); Driver: defines a list of integers and decimal values both positive and negative\
+(define aw (list '1 '-2 '-55 '-9321 '2384 '-932 '21 '-93765))\
+(define ae (list '-1.5 '2.943 '55.0 '9321.342 '-2384.5832 '932.8953 '-21 '93765))\
+(define ar (list '-1 '2 '55 '9321 '-2384 '932 '-21 '93765))\
+(define at (list '1 '2 '3 '4 '5 '6 '7 '8 '9 '10))\
+(define ay (list '-1 '-2 '-3 '-4 '-5 '-6 '-7 '-8 '-9 '-10))\
+(define au (list '0.5 '-0.943 '-0.0 '-0.342 '0.5832 '-0.8953 '0 '-0))\
+(define ai (list '0 '0 '0 '0 '10 '100 '1000 '10000))\
+(define ao (list '-0 '-0 '-0 '-0 '-10 '-100 '-1000 '-10000))\
+(define ap (list '-.9 '-.09 '-.009 '-.0009 '.01 '.002 '-.002 '.5))\
+(display aq); Displays the list as the origional un processed list\
+(newline); creates a new line for visual purpose\
+(display (absValue aq)); displays the list in absolute value\
+(newline)\
+(newline)\
+(display aw)\
+(newline)\
+(display (absValue aw))\
+(newline)\
+(newline)\
+(display ae)\
+(newline)\
+(display (absValue ae))\
+(newline)\
+(newline)\
+(display ar)\
+(newline)\
+(display (absValue ar))\
+(newline)\
+(newline)\
+(display at)\
+(newline)\
+(display (absValue at))\
+(newline)\
+(newline)\
+(display ay)\
+(newline)\
+(display (absValue ay))\
+(newline)\
+(newline)\
+(display au)\
+(newline)\
+(display (absValue au))\
+(newline)\
+(newline)\
+(display ai)\
+(newline)\
+(display (absValue ai))\
+(newline)\
+(newline)\
+(display ao)\
+(newline)\
+(display (absValue ao))\
+(newline)\
+(newline)\
+(display ap)\
+(newline)\
+(display (absValue ap))}
